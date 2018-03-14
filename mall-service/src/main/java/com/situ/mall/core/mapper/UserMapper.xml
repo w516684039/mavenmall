@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.situ.mall.mapper.UserMapper" >
-  <resultMap id="BaseResultMap" type="com.situ.mall.entity.User" >
+<mapper namespace="com.situ.mall.core.mapper.UserMapper" >
+  <resultMap id="BaseResultMap" type="com.situ.mall.core.entity.User" >
     <constructor >
       <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
       <arg column="username" jdbcType="VARCHAR" javaType="java.lang.String" />
@@ -28,17 +28,17 @@
     delete from user
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.situ.mall.entity.User" >
+  <insert id="insert" parameterType="com.situ.mall.core.entity.User" >
     insert into user (id, username, password, 
       email, phone, question, 
       answer, role, create_time, 
       update_time)
     values (#{id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
       #{email,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{question,jdbcType=VARCHAR}, 
-      #{answer,jdbcType=VARCHAR}, #{role,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
-      #{updateTime,jdbcType=TIMESTAMP})
+      #{answer,jdbcType=VARCHAR}, #{role,jdbcType=INTEGER},now(),now()
+      )
   </insert>
-  <insert id="insertSelective" parameterType="com.situ.mall.entity.User" >
+  <insert id="insertSelective" parameterType="com.situ.mall.core.entity.User" >
     insert into user
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -105,7 +105,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.situ.mall.entity.User" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.situ.mall.core.entity.User" >
     update user
     <set >
       <if test="username != null" >
@@ -132,13 +132,13 @@
       <if test="createTime != null" >
         create_time = #{createTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="updateTime != null" >
-        update_time = #{updateTime,jdbcType=TIMESTAMP},
-      </if>
+      <!-- <if test="updateTime != null" > -->
+        update_time = now(),
+      <!-- </if> -->
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.situ.mall.entity.User" >
+  <update id="updateByPrimaryKey" parameterType="com.situ.mall.core.entity.User" >
     update user
     set username = #{username,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR},

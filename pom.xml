@@ -236,5 +236,6 @@
 		<module>mall-common</module>
 		<module>mall-admin</module>
 		<module>mall-service</module>
+		<module>mall-portal</module>
 	</modules>
 </project>

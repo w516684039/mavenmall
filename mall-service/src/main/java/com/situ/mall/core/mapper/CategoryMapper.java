@@ -21,5 +21,9 @@ public interface CategoryMapper {
     
     List<Category> selectSecondCategory(Integer topCategoryId);
     
+    List<Category> pageList(Category name);
+    
     Integer selectParentCategoryId(Integer categoryId);
+    
+    List<Category> selectSecondCategoryList();
 }

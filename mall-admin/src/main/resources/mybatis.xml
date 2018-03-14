@@ -6,8 +6,8 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 
 <configuration>
    <typeAliases>
-   		<package name="com.situ.mall.entity"/>
-   		<package name="com.situ.mall.vo"/>
+   		<package name="com.situ.mall.core.entity"/>
+   		<package name="com.situ.mall.admin.vo"/>
    </typeAliases>
    
    <plugins>

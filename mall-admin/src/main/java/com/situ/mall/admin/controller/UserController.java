@@ -6,20 +6,26 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.situ.mall.admin.constant.Const;
 import com.situ.mall.common.response.ServerResponse;
+import com.situ.mall.core.constant.Const;
 import com.situ.mall.core.entity.User;
+import com.situ.mall.core.mapper.UserMapper;
+import com.situ.mall.core.service.ICategoryService;
 import com.situ.mall.core.service.IUserService;
+import com.situ.mall.core.service.impl.CategoryServiceImpl;
 
 @Controller
-@RequestMapping("/manager/user")
+@RequestMapping("/user")
 public class UserController {
 	@Autowired
 	private IUserService userService;
+	@Autowired
+	private UserMapper usermapper;
 	
 	@RequestMapping(value="/getLoginPage")
 	public String getLoginPage(){
@@ -75,6 +81,18 @@ public class UserController {
 	public ServerResponse add(User user){
 		return userService.add(user);
 	}
-		
+
+	@RequestMapping(value = "/getEditPage")
+	public String getEditPage(Integer id,Model model){
+		User user = usermapper.selectByPrimaryKey(id);
+		model.addAttribute("user",user);
+		return "user_edit";
+	}
+	
+	@RequestMapping("/update")
+	@ResponseBody
+	public ServerResponse update(User user){
+		return userService.update(user);
+	}
 		
 }

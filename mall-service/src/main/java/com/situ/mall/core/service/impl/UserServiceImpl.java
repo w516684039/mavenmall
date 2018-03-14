@@ -10,6 +10,7 @@ import com.github.pagehelper.PageInfo;
 import com.situ.mall.common.response.ServerResponse;
 import com.situ.mall.common.util.MD5Util;
 import com.situ.mall.core.entity.User;
+import com.situ.mall.core.mapper.ProductMapper;
 import com.situ.mall.core.mapper.UserMapper;
 import com.situ.mall.core.service.IUserService;
 @Service
@@ -74,7 +75,26 @@ public class UserServiceImpl implements IUserService{
 
 	@Override
 	public ServerResponse add(User user) {
-		// TODO Auto-generated method stub
-		return null;
+		int rowCount = userMapper.insert(user);
+		if (rowCount > 0) {
+			return ServerResponse.createSuccess("添加成功");
+		}
+		return ServerResponse.createError("添加失败");
 	}
+
+	@Override
+	public User selectById(Integer id) {
+		return userMapper.selectByPrimaryKey(id);
+	}
+	
+	@Override
+	public ServerResponse update(User user) {
+		int rowCount = userMapper.updateByPrimaryKeySelective(user);
+		if (rowCount > 0) {
+			return ServerResponse.createSuccess("更新用户成功");
+		}
+		return ServerResponse.createError("更新用户失败");
+	}
+
+	
 }

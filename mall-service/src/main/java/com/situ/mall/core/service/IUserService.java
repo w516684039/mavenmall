@@ -11,4 +11,6 @@ public interface IUserService {
 	ServerResponse deleteById(Integer id);
 	ServerResponse deleteAll(String ids);
 	ServerResponse add(User user);
+	User selectById(Integer id);
+	ServerResponse update(User user);
 }

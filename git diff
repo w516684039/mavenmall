@@ -1,0 +1,376 @@
+warning: LF will be replaced by CRLF in mall-service/src/main/java/com/situ/mall/core/mapper/CartMapper.xml.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in mall-service/src/main/java/com/situ/mall/core/mapper/CategoryMapper.xml.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in mall-service/src/main/java/com/situ/mall/core/mapper/OrderItemMapper.xml.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in mall-service/src/main/java/com/situ/mall/core/mapper/OrderMapper.xml.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in mall-service/src/main/java/com/situ/mall/core/mapper/PayInfoMapper.xml.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in mall-service/src/main/java/com/situ/mall/core/mapper/ProductMapper.xml.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in mall-service/src/main/java/com/situ/mall/core/mapper/ShippingMapper.xml.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in mall-service/src/main/java/com/situ/mall/core/mapper/UserMapper.xml.
+The file will have its original line endings in your working directory.
+[1mdiff --git a/mall-service/src/main/java/com/situ/mall/core/mapper/CartMapper.xml b/mall-service/src/main/java/com/situ/mall/core/mapper/CartMapper.xml[m
+[1mindex 885b321..73f3aa5 100644[m
+[1m--- a/mall-service/src/main/java/com/situ/mall/core/mapper/CartMapper.xml[m
+[1m+++ b/mall-service/src/main/java/com/situ/mall/core/mapper/CartMapper.xml[m
+[36m@@ -25,7 +25,7 @@[m
+     delete from cart[m
+     where id = #{id,jdbcType=INTEGER}[m
+   </delete>[m
+[31m-  <insert id="insert" parameterType="com.situ.mall.entity.Cart" >[m
+[32m+[m[32m  <insert id="insert" parameterType="com.situ.mall.core.entity.Cart" >[m
+     insert into cart (id, user_id, product_id, [m
+       quantity, checked, create_time, [m
+       update_time)[m
+[36m@@ -33,7 +33,7 @@[m
+       #{quantity,jdbcType=INTEGER}, #{checked,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, [m
+       #{updateTime,jdbcType=TIMESTAMP})[m
+   </insert>[m
+[31m-  <insert id="insertSelective" parameterType="com.situ.mall.entity.Cart" >[m
+[32m+[m[32m  <insert id="insertSelective" parameterType="com.situ.mall.core.entity.Cart" >[m
+     insert into cart[m
+     <trim prefix="(" suffix=")" suffixOverrides="," >[m
+       <if test="id != null" >[m
+[36m@@ -82,7 +82,7 @@[m
+       </if>[m
+     </trim>[m
+   </insert>[m
+[31m-  <update id="updateByPrimaryKeySelective" parameterType="com.situ.mall.entity.Cart" >[m
+[32m+[m[32m  <update id="updateByPrimaryKeySelective" parameterType="com.situ.mall.core.entity.Cart" >[m
+     update cart[m
+     <set >[m
+       <if test="userId != null" >[m
+[36m@@ -106,7 +106,7 @@[m
+     </set>[m
+     where id = #{id,jdbcType=INTEGER}[m
+   </update>[m
+[31m-  <update id="updateByPrimaryKey" parameterType="com.situ.mall.entity.Cart" >[m
+[32m+[m[32m  <update id="updateByPrimaryKey" parameterType="com.situ.mall.core.entity.Cart" >[m
+     update cart[m
+     set user_id = #{userId,jdbcType=INTEGER},[m
+       product_id = #{productId,jdbcType=INTEGER},[m
+[1mdiff --git a/mall-service/src/main/java/com/situ/mall/core/mapper/CategoryMapper.xml b/mall-service/src/main/java/com/situ/mall/core/mapper/CategoryMapper.xml[m
+[1mindex 5354d2e..cd08610 100644[m
+[1m--- a/mall-service/src/main/java/com/situ/mall/core/mapper/CategoryMapper.xml[m
+[1m+++ b/mall-service/src/main/java/com/situ/mall/core/mapper/CategoryMapper.xml[m
+[36m@@ -25,7 +25,7 @@[m
+     delete from category[m
+     where id = #{id,jdbcType=INTEGER}[m
+   </delete>[m
+[31m-  <insert id="insert" parameterType="com.situ.mall.entity.Category" >[m
+[32m+[m[32m  <insert id="insert" parameterType="com.situ.mall.core.entity.Category" >[m
+     insert into category (id, parent_id, name, [m
+       status, sort_order, create_time, [m
+       update_time)[m
+[36m@@ -33,7 +33,7 @@[m
+       #{status,jdbcType=BIT}, #{sortOrder,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, [m
+       #{updateTime,jdbcType=TIMESTAMP})[m
+   </insert>[m
+[31m-  <insert id="insertSelective" parameterType="com.situ.mall.entity.Category" >[m
+[32m+[m[32m  <insert id="insertSelective" parameterType="com.situ.mall.core.entity.Category" >[m
+     insert into category[m
+     <trim prefix="(" suffix=")" suffixOverrides="," >[m
+       <if test="id != null" >[m
+[36m@@ -82,7 +82,7 @@[m
+       </if>[m
+     </trim>[m
+   </insert>[m
+[31m-  <update id="updateByPrimaryKeySelective" parameterType="com.situ.mall.entity.Category" >[m
+[32m+[m[32m  <update id="updateByPrimaryKeySelective" parameterType="com.situ.mall.core.entity.Category" >[m
+     update category[m
+     <set >[m
+       <if test="parentId != null" >[m
+[36m@@ -106,7 +106,7 @@[m
+     </set>[m
+     where id = #{id,jdbcType=INTEGER}[m
+   </update>[m
+[31m-  <update id="updateByPrimaryKey" parameterType="com.situ.mall.entity.Category" >[m
+[32m+[m[32m  <update id="updateByPrimaryKey" parameterType="com.situ.mall.core.entity.Category" >[m
+     update category[m
+     set parent_id = #{parentId,jdbcType=INTEGER},[m
+       name = #{name,jdbcType=VARCHAR},[m
+[1mdiff --git a/mall-service/src/main/java/com/situ/mall/core/mapper/OrderItemMapper.xml b/mall-service/src/main/java/com/situ/mall/core/mapper/OrderItemMapper.xml[m
+[1mindex dbdfa6c..96bb093 100644[m
+[1m--- a/mall-service/src/main/java/com/situ/mall/core/mapper/OrderItemMapper.xml[m
+[1m+++ b/mall-service/src/main/java/com/situ/mall/core/mapper/OrderItemMapper.xml[m
+[36m@@ -30,7 +30,7 @@[m
+     delete from order_item[m
+     where id = #{id,jdbcType=INTEGER}[m
+   </delete>[m
+[31m-  <insert id="insert" parameterType="com.situ.mall.entity.OrderItem" >[m
+[32m+[m[32m  <insert id="insert" parameterType="com.situ.mall.core.entity.OrderItem" >[m
+     insert into order_item (id, user_id, order_no, [m
+       product_id, product_name, product_image, [m
+       current_unit_price, quantity, total_price, [m
+[36m@@ -40,7 +40,7 @@[m
+       #{currentUnitPrice,jdbcType=DECIMAL}, #{quantity,jdbcType=INTEGER}, #{totalPrice,jdbcType=DECIMAL}, [m
+       #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})[m
+   </insert>[m
+[31m-  <insert id="insertSelective" parameterType="com.situ.mall.entity.OrderItem" >[m
+[32m+[m[32m  <insert id="insertSelective" parameterType="com.situ.mall.core.entity.OrderItem" >[m
+     insert into order_item[m
+     <trim prefix="(" suffix=")" suffixOverrides="," >[m
+       <if test="id != null" >[m
+[36m@@ -113,7 +113,7 @@[m
+       </if>[m
+     </trim>[m
+   </insert>[m
+[31m-  <update id="updateByPrimaryKeySelective" parameterType="com.situ.mall.entity.OrderItem" >[m
+[32m+[m[32m  <update id="updateByPrimaryKeySelective" parameterType="com.situ.mall.core.entity.OrderItem" >[m
+     update order_item[m
+     <set >[m
+       <if test="userId != null" >[m
+[36m@@ -149,7 +149,7 @@[m
+     </set>[m
+     where id = #{id,jdbcType=INTEGER}[m
+   </update>[m
+[31m-  <update id="updateByPrimaryKey" parameterType="com.situ.mall.entity.OrderItem" >[m
+[32m+[m[32m  <update id="updateByPrimaryKey" parameterType="com.situ.mall.core.entity.OrderItem" >[m
+     update order_item[m
+     set user_id = #{userId,jdbcType=INTEGER},[m
+       order_no = #{orderNo,jdbcType=BIGINT},[m
+[1mdiff --git a/mall-service/src/main/java/com/situ/mall/core/mapper/OrderMapper.xml b/mall-service/src/main/java/com/situ/mall/core/mapper/OrderMapper.xml[m
+[1mindex 7a80840..8f81c91 100644[m
+[1m--- a/mall-service/src/main/java/com/situ/mall/core/mapper/OrderMapper.xml[m
+[1m+++ b/mall-service/src/main/java/com/situ/mall/core/mapper/OrderMapper.xml[m
+[36m@@ -1,6 +1,6 @@[m
+ <?xml version="1.0" encoding="UTF-8" ?>[m
+ <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >[m
+[31m-<mapper namespace="com.situ.mall.mapper.OrderMapper" >[m
+[32m+[m[32m<mapper namespace="com.situ.mall.core.mapper.OrderMapper" >[m
+   <resultMap id="BaseResultMap" type="com.situ.mall.core.entity.Order" >[m
+     <constructor >[m
+       <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />[m
+[36m@@ -33,7 +33,7 @@[m
+     delete from order[m
+     where id = #{id,jdbcType=INTEGER}[m
+   </delete>[m
+[31m-  <insert id="insert" parameterType="com.situ.mall.entity.Order" >[m
+[32m+[m[32m  <insert id="insert" parameterType="com.situ.mall.core.entity.Order" >[m
+     insert into order (id, order_no, user_id, [m
+       shipping_id, payment, payment_type, [m
+       postage, status, payment_time, [m
+[36m@@ -45,7 +45,7 @@[m
+       #{sendTime,jdbcType=TIMESTAMP}, #{endTime,jdbcType=TIMESTAMP}, #{closeTime,jdbcType=TIMESTAMP}, [m
+       #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})[m
+   </insert>[m
+[31m-  <insert id="insertSelective" parameterType="com.situ.mall.entity.Order" >[m
+[32m+[m[32m  <insert id="insertSelective" parameterType="com.situ.mall.core.entity.Order" >[m
+     insert into order[m
+     <trim prefix="(" suffix=")" suffixOverrides="," >[m
+       <if test="id != null" >[m
+[36m@@ -136,7 +136,7 @@[m
+       </if>[m
+     </trim>[m
+   </insert>[m
+[31m-  <update id="updateByPrimaryKeySelective" parameterType="com.situ.mall.entity.Order" >[m
+[32m+[m[32m  <update id="updateByPrimaryKeySelective" parameterType="com.situ.mall.core.entity.Order" >[m
+     update order[m
+     <set >[m
+       <if test="orderNo != null" >[m
+[36m@@ -181,7 +181,7 @@[m
+     </set>[m
+     where id = #{id,jdbcType=INTEGER}[m
+   </update>[m
+[31m-  <update id="updateByPrimaryKey" parameterType="com.situ.mall.entity.Order" >[m
+[32m+[m[32m  <update id="updateByPrimaryKey" parameterType="com.situ.mall.core.entity.Order" >[m
+     update order[m
+     set order_no = #{orderNo,jdbcType=BIGINT},[m
+       user_id = #{userId,jdbcType=INTEGER},[m
+[1mdiff --git a/mall-service/src/main/java/com/situ/mall/core/mapper/PayInfoMapper.xml b/mall-service/src/main/java/com/situ/mall/core/mapper/PayInfoMapper.xml[m
+[1mindex eac8698..d338668 100644[m
+[1m--- a/mall-service/src/main/java/com/situ/mall/core/mapper/PayInfoMapper.xml[m
+[1m+++ b/mall-service/src/main/java/com/situ/mall/core/mapper/PayInfoMapper.xml[m
+[36m@@ -1,6 +1,6 @@[m
+ <?xml version="1.0" encoding="UTF-8" ?>[m
+ <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >[m
+[31m-<mapper namespace="com.situ.mall.mapper.PayInfoMapper" >[m
+[32m+[m[32m<mapper namespace="com.situ.mall.core.mapper.PayInfoMapper" >[m
+   <resultMap id="BaseResultMap" type="com.situ.mall.core.entity.PayInfo" >[m
+     <constructor >[m
+       <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />[m
+[36m@@ -27,7 +27,7 @@[m
+     delete from pay_info[m
+     where id = #{id,jdbcType=INTEGER}[m
+   </delete>[m
+[31m-  <insert id="insert" parameterType="com.situ.mall.entity.PayInfo" >[m
+[32m+[m[32m  <insert id="insert" parameterType="com.situ.mall.core.entity.PayInfo" >[m
+     insert into pay_info (id, user_id, order_no, [m
+       pay_platform, platform_number, platform_status, [m
+       create_time, update_time)[m
+[36m@@ -35,7 +35,7 @@[m
+       #{payPlatform,jdbcType=INTEGER}, #{platformNumber,jdbcType=VARCHAR}, #{platformStatus,jdbcType=VARCHAR}, [m
+       #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})[m
+   </insert>[m
+[31m-  <insert id="insertSelective" parameterType="com.situ.mall.entity.PayInfo" >[m
+[32m+[m[32m  <insert id="insertSelective" parameterType="com.situ.mall.core.entity.PayInfo" >[m
+     insert into pay_info[m
+     <trim prefix="(" suffix=")" suffixOverrides="," >[m
+       <if test="id != null" >[m
+[36m@@ -90,7 +90,7 @@[m
+       </if>[m
+     </trim>[m
+   </insert>[m
+[31m-  <update id="updateByPrimaryKeySelective" parameterType="com.situ.mall.entity.PayInfo" >[m
+[32m+[m[32m  <update id="updateByPrimaryKeySelective" parameterType="com.situ.mall.core.entity.PayInfo" >[m
+     update pay_info[m
+     <set >[m
+       <if test="userId != null" >[m
+[36m@@ -117,7 +117,7 @@[m
+     </set>[m
+     where id = #{id,jdbcType=INTEGER}[m
+   </update>[m
+[31m-  <update id="updateByPrimaryKey" parameterType="com.situ.mall.entity.PayInfo" >[m
+[32m+[m[32m  <update id="updateByPrimaryKey" parameterType="com.situ.mall.core.entity.PayInfo" >[m
+     update pay_info[m
+     set user_id = #{userId,jdbcType=INTEGER},[m
+       order_no = #{orderNo,jdbcType=BIGINT},[m
+[1mdiff --git a/mall-service/src/main/java/com/situ/mall/core/mapper/ProductMapper.xml b/mall-service/src/main/java/com/situ/mall/core/mapper/ProductMapper.xml[m
+[1mindex 699318d..8182b90 100644[m
+[1m--- a/mall-service/src/main/java/com/situ/mall/core/mapper/ProductMapper.xml[m
+[1m+++ b/mall-service/src/main/java/com/situ/mall/core/mapper/ProductMapper.xml[m
+[36m@@ -1,6 +1,6 @@[m
+ <?xml version="1.0" encoding="UTF-8" ?>[m
+ <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >[m
+[31m-<mapper namespace="com.situ.mall.mapper.ProductMapper" >[m
+[32m+[m[32m<mapper namespace="com.situ.mall.core.mapper.ProductMapper" >[m
+   <resultMap id="BaseResultMap" type="com.situ.mall.core.entity.Product" >[m
+     <constructor >[m
+       <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />[m
+[36m@@ -31,7 +31,7 @@[m
+     delete from product[m
+     where id = #{id,jdbcType=INTEGER}[m
+   </delete>[m
+[31m-  <insert id="insert" parameterType="com.situ.mall.entity.Product" >[m
+[32m+[m[32m  <insert id="insert" parameterType="com.situ.mall.core.entity.Product" >[m
+     insert into product (id, category_id, name, [m
+       subtitle, main_image, sub_images, [m
+       detail, price, stock, [m
+[36m@@ -43,7 +43,7 @@[m
+       #{status,jdbcType=INTEGER},now(),now()}[m
+       )[m
+   </insert>[m
+[31m-  <insert id="insertSelective" parameterType="com.situ.mall.entity.Product" >[m
+[32m+[m[32m  <insert id="insertSelective" parameterType="com.situ.mall.core.entity.Product" >[m
+     insert into product[m
+     <trim prefix="(" suffix=")" suffixOverrides="," >[m
+       <if test="id != null" >[m
+[36m@@ -122,7 +122,7 @@[m
+       </if>[m
+     </trim>[m
+   </insert>[m
+[31m-  <update id="updateByPrimaryKeySelective" parameterType="com.situ.mall.entity.Product" >[m
+[32m+[m[32m  <update id="updateByPrimaryKeySelective" parameterType="com.situ.mall.core.entity.Product" >[m
+     update product[m
+     <set >[m
+       <if test="categoryId != null" >[m
+[36m@@ -162,7 +162,7 @@[m
+     ,update_time = now()[m
+     where id = #{id,jdbcType=INTEGER}[m
+   </update>[m
+[31m-  <update id="updateByPrimaryKey" parameterType="com.situ.mall.entity.Product" >[m
+[32m+[m[32m  <update id="updateByPrimaryKey" parameterType="com.situ.mall.core.entity.Product" >[m
+     update product[m
+     set category_id = #{categoryId,jdbcType=INTEGER},[m
+       name = #{name,jdbcType=VARCHAR},[m
+[1mdiff --git a/mall-service/src/main/java/com/situ/mall/core/mapper/ShippingMapper.xml b/mall-service/src/main/java/com/situ/mall/core/mapper/ShippingMapper.xml[m
+[1mindex 2cda6c3..2bfe733 100644[m
+[1m--- a/mall-service/src/main/java/com/situ/mall/core/mapper/ShippingMapper.xml[m
+[1m+++ b/mall-service/src/main/java/com/situ/mall/core/mapper/ShippingMapper.xml[m
+[36m@@ -1,6 +1,6 @@[m
+ <?xml version="1.0" encoding="UTF-8" ?>[m
+ <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >[m
+[31m-<mapper namespace="com.situ.mall.mapper.ShippingMapper" >[m
+[32m+[m[32m<mapper namespace="com.situ.mall.core.mapper.ShippingMapper" >[m
+   <resultMap id="BaseResultMap" type="com.situ.mall.core.entity.Shipping" >[m
+     <constructor >[m
+       <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />[m
+[36m@@ -31,7 +31,7 @@[m
+     delete from shipping[m
+     where id = #{id,jdbcType=INTEGER}[m
+   </delete>[m
+[31m-  <insert id="insert" parameterType="com.situ.mall.entity.Shipping" >[m
+[32m+[m[32m  <insert id="insert" parameterType="com.situ.mall.core.entity.Shipping" >[m
+     insert into shipping (id, user_id, receiver_name, [m
+       receiver_phone, receiver_mobile, receiver_province, [m
+       receiver_city, receiver_district, receiver_address, [m
+[36m@@ -43,7 +43,7 @@[m
+       #{receiverZip,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}[m
+       )[m
+   </insert>[m
+[31m-  <insert id="insertSelective" parameterType="com.situ.mall.entity.Shipping" >[m
+[32m+[m[32m  <insert id="insertSelective" parameterType="com.situ.mall.core.entity.Shipping" >[m
+     insert into shipping[m
+     <trim prefix="(" suffix=")" suffixOverrides="," >[m
+       <if test="id != null" >[m
+[36m@@ -122,7 +122,7 @@[m
+       </if>[m
+     </trim>[m
+   </insert>[m
+[31m-  <update id="updateByPrimaryKeySelective" parameterType="com.situ.mall.entity.Shipping" >[m
+[32m+[m[32m  <update id="updateByPrimaryKeySelective" parameterType="com.situ.mall.core.entity.Shipping" >[m
+     update shipping[m
+     <set >[m
+       <if test="userId != null" >[m
+[36m@@ -161,7 +161,7 @@[m
+     </set>[m
+     where id = #{id,jdbcType=INTEGER}[m
+   </update>[m
+[31m-  <update id="updateByPrimaryKey" parameterType="com.situ.mall.entity.Shipping" >[m
+[32m+[m[32m  <update id="updateByPrimaryKey" parameterType="com.situ.mall.core.entity.Shipping" >[m
+     update shipping[m
+     set user_id = #{userId,jdbcType=INTEGER},[m
+       receiver_name = #{receiverName,jdbcType=VARCHAR},[m
+[1mdiff --git a/mall-service/src/main/java/com/situ/mall/core/mapper/UserMapper.xml b/mall-service/src/main/java/com/situ/mall/core/mapper/UserMapper.xml[m
+[1mindex 60ec07d..00cb072 100644[m
+[1m--- a/mall-service/src/main/java/com/situ/mall/core/mapper/UserMapper.xml[m
+[1m+++ b/mall-service/src/main/java/com/situ/mall/core/mapper/UserMapper.xml[m
+[36m@@ -1,6 +1,6 @@[m
+ <?xml version="1.0" encoding="UTF-8" ?>[m
+ <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >[m
+[31m-<mapper namespace="com.situ.mall.mapper.UserMapper" >[m
+[32m+[m[32m<mapper namespace="com.situ.mall.core.mapper.UserMapper" >[m
+   <resultMap id="BaseResultMap" type="com.situ.mall.core.entity.User" >[m
+     <constructor >[m
+       <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />[m
+[36m@@ -28,7 +28,7 @@[m
+     delete from user[m
+     where id = #{id,jdbcType=INTEGER}[m
+   </delete>[m
+[31m-  <insert id="insert" parameterType="com.situ.mall.entity.User" >[m
+[32m+[m[32m  <insert id="insert" parameterType="com.situ.mall.core.entity.User" >[m
+     insert into user (id, username, password, [m
+       email, phone, question, [m
+       answer, role, create_time, [m
+[36m@@ -38,7 +38,7 @@[m
+       #{answer,jdbcType=VARCHAR}, #{role,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, [m
+       #{updateTime,jdbcType=TIMESTAMP})[m
+   </insert>[m
+[31m-  <insert id="insertSelective" parameterType="com.situ.mall.entity.User" >[m
+[32m+[m[32m  <insert id="insertSelective" parameterType="com.situ.mall.core.entity.User" >[m
+     insert into user[m
+     <trim prefix="(" suffix=")" suffixOverrides="," >[m
+       <if test="id != null" >[m
+[36m@@ -105,7 +105,7 @@[m
+       </if>[m
+     </trim>[m
+   </insert>[m
+[31m-  <update id="updateByPrimaryKeySelective" parameterType="com.situ.mall.entity.User" >[m
+[32m+[m[32m  <update id="updateByPrimaryKeySelective" parameterType="com.situ.mall.core.entity.User" >[m
+     update user[m
+     <set >[m
+       <if test="username != null" >[m
+[36m@@ -138,7 +138,7 @@[m
+     </set>[m
+     where id = #{id,jdbcType=INTEGER}[m
+   </update>[m
+[31m-  <update id="updateByPrimaryKey" parameterType="com.situ.mall.entity.User" >[m
+[32m+[m[32m  <update id="updateByPrimaryKey" parameterType="com.situ.mall.core.entity.User" >[m
+     update user[m
+     set username = #{username,jdbcType=VARCHAR},[m
+       password = #{password,jdbcType=VARCHAR},[m
