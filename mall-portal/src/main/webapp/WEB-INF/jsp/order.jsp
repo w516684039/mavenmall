@@ -24,7 +24,7 @@
 <header id="pc-header">
 	<div class="pc-header-nav">
 		<div class="pc-header-con">
-			<div class="fl pc-header-link" >您好！，欢迎来到靓淘网<a href="login.html" target="_blank">请登录</a> <a href="register.html" target="_blank"> 免费注册</a></div>
+			<div class="fl pc-header-link" >您好！，欢迎来到靓淘网<a href="login.html" target="_blank" id="user" value="${user.id}">${user.username}</a> <a href="register.html" target="_blank"> 免费注册</a></div>
 			<div class="fr pc-header-list top-nav">
 				<ul>
 					<li>
@@ -359,7 +359,7 @@
 													<div class="item-row">
 														<div class="col col-1">
 															<div class="g-pic">
-																<img src="/pic/${cartitem.product.mainImage}" width="40" height="40" />
+																<img src="${imageServer}/${cartitem.product.mainImage}" width="40" height="40" />
 															</div>
 															<div class="g-info">
 																<a href="#" target="_blank">
@@ -445,7 +445,7 @@
 						<div class="checkout-confirm">
 
 							<a href="#" class="btn btn-lineDakeLight btn-back-cart">返回购物车</a>
-							<a href="my-apy.html" class="btn btn-primary">立即下单</a>
+							<a  class="btn btn-primary" onclick="addOrder()">立即下单</a>
 
 						</div>
 					</div>
@@ -645,6 +645,19 @@
 	$('#totalPrice').html(totalprice);
 	$('#allPrice').html(totalprice);
 	
+	function addOrder(){
+		$.ajax({
+			url:'${ctx}/order/addOrder.shtml',
+			type : "POST",
+			dataType : "json",
+			data:{'shippingId':'${shipping.id}','totalprice':$("#totalPrice").html()},
+			success:function(data){
+				if(data.code == util.SUCCESS){
+					window.location.href = '${ctx}/order/getpay.shtml';
+				}
+			}
+		});
+	}
 </script>
 
 </body>

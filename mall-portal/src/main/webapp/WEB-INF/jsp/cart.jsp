@@ -115,7 +115,7 @@
 					</c:if>
 				</div>
 				<div class="car_con_2">
-					<img src="/pic/${cartItemVo.product.mainImage}" width="50" height="57" />
+					<img src="${imageServer}/${cartItemVo.product.mainImage}" width="50" height="57" />
 				</div>
 				<div class="car_con_3">
 					<p class="p_title">${cartItemVo.product.name}</p>

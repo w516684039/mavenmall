@@ -3,6 +3,7 @@ package com.situ.mall.core.entity;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 
 public class Order implements Serializable {
     private Integer id;
@@ -32,27 +33,41 @@ public class Order implements Serializable {
     private Date createTime;
 
     private Date updateTime;
+    
+    private List<OrderItem> orderItems;
 
     private static final long serialVersionUID = 1L;
 
-    public Order(Integer id, Long orderNo, Integer userId, Integer shippingId, BigDecimal payment, Integer paymentType, Integer postage, Integer status, Date paymentTime, Date sendTime, Date endTime, Date closeTime, Date createTime, Date updateTime) {
-        this.id = id;
-        this.orderNo = orderNo;
-        this.userId = userId;
-        this.shippingId = shippingId;
-        this.payment = payment;
-        this.paymentType = paymentType;
-        this.postage = postage;
-        this.status = status;
-        this.paymentTime = paymentTime;
-        this.sendTime = sendTime;
-        this.endTime = endTime;
-        this.closeTime = closeTime;
-        this.createTime = createTime;
-        this.updateTime = updateTime;
-    }
+    public Order(Integer id, Long orderNo, Integer userId, Integer shippingId, BigDecimal payment, Integer paymentType,
+			Integer postage, Integer status, Date paymentTime, Date sendTime, Date endTime, Date closeTime,
+			Date createTime, Date updateTime, List<OrderItem> orderItems) {
+		super();
+		this.id = id;
+		this.orderNo = orderNo;
+		this.userId = userId;
+		this.shippingId = shippingId;
+		this.payment = payment;
+		this.paymentType = paymentType;
+		this.postage = postage;
+		this.status = status;
+		this.paymentTime = paymentTime;
+		this.sendTime = sendTime;
+		this.endTime = endTime;
+		this.closeTime = closeTime;
+		this.createTime = createTime;
+		this.updateTime = updateTime;
+		this.orderItems = orderItems;
+	}
 
-    public Order() {
+	public List<OrderItem> getorderItems() {
+		return orderItems;
+	}
+
+	public void setorderItems(List<OrderItem> orderItems) {
+		this.orderItems = orderItems;
+	}
+
+	public Order() {
         super();
     }
 
@@ -168,28 +183,14 @@ public class Order implements Serializable {
         this.updateTime = updateTime;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getClass().getSimpleName());
-        sb.append(" [");
-        sb.append("Hash = ").append(hashCode());
-        sb.append(", id=").append(id);
-        sb.append(", orderNo=").append(orderNo);
-        sb.append(", userId=").append(userId);
-        sb.append(", shippingId=").append(shippingId);
-        sb.append(", payment=").append(payment);
-        sb.append(", paymentType=").append(paymentType);
-        sb.append(", postage=").append(postage);
-        sb.append(", status=").append(status);
-        sb.append(", paymentTime=").append(paymentTime);
-        sb.append(", sendTime=").append(sendTime);
-        sb.append(", endTime=").append(endTime);
-        sb.append(", closeTime=").append(closeTime);
-        sb.append(", createTime=").append(createTime);
-        sb.append(", updateTime=").append(updateTime);
-        sb.append(", serialVersionUID=").append(serialVersionUID);
-        sb.append("]");
-        return sb.toString();
-    }
+	@Override
+	public String toString() {
+		return "Order [id=" + id + ", orderNo=" + orderNo + ", userId=" + userId + ", shippingId=" + shippingId
+				+ ", payment=" + payment + ", paymentType=" + paymentType + ", postage=" + postage + ", status="
+				+ status + ", paymentTime=" + paymentTime + ", sendTime=" + sendTime + ", endTime=" + endTime
+				+ ", closeTime=" + closeTime + ", createTime=" + createTime + ", updateTime=" + updateTime + ", list="
+				+ orderItems + "]";
+	}
+
+    
 }

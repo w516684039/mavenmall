@@ -34,20 +34,6 @@
   		<img src="${imageServer}/{{d.mainImage}}">
 	</script>
 	
-	<script type="text/html" id="statusTpl">
-  		{{# 	if(d.status==1) { 	}}
-					上架
-		{{# 	} else {			}}
-					下架
-		{{#		}					}}
-	</script>
-	<script type="text/html" id="statusTpl1">
-  		{{# 	if(d.status==1) { 	}}
-					<button class="layui-btn">上架</button>
-		{{# 	} else {			}}
-					<button class="layui-btn">下架</button>
-		{{#		}					}}
-	</script>
 	
 	
 	<script>
@@ -56,17 +42,17 @@
 		  
 		  table.render({
 		    elem: '#datagrid', //要渲染哪个表格
-		    url:'${ctx}/product/pageList.action', //异步数据接口
+		    url:'${ctx}/order/pageList.action', //异步数据接口
 		    cellMinWidth: 50, //列宽自动分配，全局定义常规单元格的最小宽度
 		    cols: [[
 		            {type:'checkbox'},
 		      {field:'id', title: 'ID', sort: true},
-		      {field:'name', title: '名称', sort: true},
-		      {field:'subtitle', title: '标题', sort: true},
-		      {field:'mainImage', title: '商品主图', templet: '#imgTpl'},
-		      {field:'price', title: '价格', sort: true},
-		      {field:'stock', title: '库存', sort: true},
-		      {field:'status', title: '状态', templet: '#statusTpl'},
+		      {field:'orderNo', title: '订单号', sort: true},
+		      {field:'productName', title: '商品名称', sort: true},
+		      {field:'productImage', title: '商品主图', templet: '#imgTpl'},
+		      {field:'currentUnitPrice', title: '单价', sort: true},
+		      {field:'quantity', title: '数量', sort: true},
+		      {field:'totalPrice', title: '总价', sort: true},
 		      {field:'createTime', title: '创建时间', sort: true},
 		      {field:'updateTime', title: '更新时间', sort: true},
 		      {fixed: 'right', width : 170, toolbar: '#toolbar'}

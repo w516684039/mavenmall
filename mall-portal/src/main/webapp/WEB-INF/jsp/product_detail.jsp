@@ -134,7 +134,7 @@
 			<div class="left">
 				<ul>
 					<li class="banner_center_left_top">
-						<img src="/pic/${product.mainImage}" width="345" height="370"/>
+						<img src="${imageServer}/${product.mainImage}" width="345" height="370"/>
 					</li>
 					<li class="banner_center_left_center">
 						<ul>
@@ -143,7 +143,7 @@
 							
 							<c:forEach items="${subImages}" var="subImage">
 								<li class="small_shop" width="57" height="58">
-									<img src="/pic/${subImage}">
+									<img src="${imageServer}/${subImage}">
 								</li>								
 							</c:forEach>
 							<li class="left_right_nav">

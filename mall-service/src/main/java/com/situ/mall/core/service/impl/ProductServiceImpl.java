@@ -30,7 +30,7 @@ public class ProductServiceImpl implements IProductService {
 	public ServerResponse deleteById(Integer id) {
 		int count = productMapper.deleteByPrimaryKey(id);
 		if (count>0) {
-			return ServerResponse.createSuccess("shanchucg");
+			return ServerResponse.createSuccess("删除成功");
 		}
 		return ServerResponse.createError("删除失败");
 	}

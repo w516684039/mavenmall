@@ -8,11 +8,13 @@ import org.springframework.stereotype.Service;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.qiniu.http.Response;
 import com.situ.mall.common.response.ServerResponse;
 import com.situ.mall.core.entity.Category;
 import com.situ.mall.core.entity.Product;
 import com.situ.mall.core.mapper.CategoryMapper;
 import com.situ.mall.core.service.ICategoryService;
+import com.situ.mall.core.vo.CategoryCountVo;
 @Service
 public class CategoryServiceImpl implements ICategoryService {
     @Autowired
@@ -59,13 +61,24 @@ public class CategoryServiceImpl implements ICategoryService {
 	@Override
 	public ServerResponse deleteById(Integer id) {
 		// TODO Auto-generated method stub
-		return null;
+		int count = categoryMapper.deleteByPrimaryKey(id);
+		if (count > 0 ) {
+			return ServerResponse.createSuccess("删除成功");
+		}else {
+			return ServerResponse.createError("删除失败");
+		}
+		
 	}
 
 	@Override
 	public ServerResponse add(Category category) {
 		// TODO Auto-generated method stub
-		return null;
+		int rowCount = categoryMapper.insert(category);
+		if (rowCount > 0) {
+			return ServerResponse.createSuccess("添加成功");
+		}else{
+			return ServerResponse.createError("添加失败");
+		}
 	}
 
 	@Override
@@ -92,6 +105,15 @@ public class CategoryServiceImpl implements ICategoryService {
 	@Override
 	public List<Category> selectSecondCategoryList() {
 		return categoryMapper.selectSecondCategoryList();
+	}
+
+	@Override
+	public ServerResponse getCategoryCountAnalysis() {
+		List<CategoryCountVo> list = categoryMapper.getCategoryCountAnalysis();
+		if (list == null || list.size() == 0) {
+			return ServerResponse.createError("查找失败");
+		}
+		return ServerResponse.createSuccess("查找成功",list);
 	}
 
 }

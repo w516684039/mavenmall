@@ -78,7 +78,7 @@
 				<ul>
 					<c:forEach items="${list}" var="product">
 						<li>
-							<img src="/pic/${product.mainImage}">
+							<img src="${imageServer}/${product.mainImage}">
 							<p>${product.name}</p>
 						</li>
 					</c:forEach>
@@ -89,7 +89,7 @@
 		    <c:forEach items="${list}" var="product">
 			<li>
 			<a href="${ctx}/product/getProductDetail.shtml?productId=${product.id}">
-			<img src="/pic/${product.mainImage}" class="productimg"/>
+			<img src="${imageServer}/${product.mainImage}" class="productimg"/>
 			</a>
 			 <c:if test="${fn:length(product.name)>15}">
 			<p>${fn:substring(product.name, 0, 15)}...</p>

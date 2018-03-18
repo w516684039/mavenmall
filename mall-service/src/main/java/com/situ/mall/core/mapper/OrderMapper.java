@@ -1,5 +1,7 @@
 package com.situ.mall.core.mapper;
 
+import java.util.List;
+
 import com.situ.mall.core.entity.Order;
 
 public interface OrderMapper {
@@ -14,4 +16,10 @@ public interface OrderMapper {
     int updateByPrimaryKeySelective(Order record);
 
     int updateByPrimaryKey(Order record);
+    
+    Order selectByUserId(Integer id);
+    
+    List<Order> selectByUserrId(Integer userid);
+    
+    List<Order> selectAlls();
 }
